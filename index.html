@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbería Mercurio — Más que un corte, un nuevo look | Zapopan</title>
+<meta name="description" content="Barbería Mercurio en Zapopan Centro. Cortes, barba, tratamientos faciales y cursos de barbería. Lunes a Sábado 11–21h. Agenda tu cita por WhatsApp.">
+<meta name="keywords" content="barbería zapopan, corte de cabello zapopan, barbería mercurio, barber zapopan centro, barba zapopan, guadalajara">
+<meta property="og:title" content="Barbería Mercurio — Más que un corte, un nuevo look">
+<meta property="og:description" content="La barbería de referencia en Zapopan Centro. Cortes, barba, tratamientos y cursos profesionales.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --accent:  #FFFFFF;
+  --accent2: #CCCCCC;
+  --bg:      #07080A;
+  --surface: #0D0E11;
+  --s2:      #141519;
+  --border:  rgba(255,255,255,0.09);
+  --white:   #FFFFFF;
+  --muted:   rgba(255,255,255,0.42);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ── CURSOR ─────────────────────────────────────────────────────────────── */
+* { cursor: none !important; }
+#cursor {
+  position: fixed; width: 18px; height: 18px;
+  background: #fff; border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: width .2s, height .2s, opacity .2s;
+  mix-blend-mode: difference;
+}
+#cursor.grow { width: 42px; height: 42px; opacity: .6; }
+
+/* ── NAV ────────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 60px;
+  transition: background .4s, padding .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(7,8,10,0.96);
+  backdrop-filter: blur(14px);
+  padding: 14px 60px;
+  border-color: var(--border);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-icon {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-icon svg { width: 14px; height: 14px; }
+.nav-logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a {
+  font-size: 11px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  color: var(--white) !important;
+  padding: 10px 26px;
+  transition: background .2s, color .2s !important;
+}
+.nav-cta:hover { background: var(--white) !important; color: var(--bg) !important; }
+
+/* ── HERO ───────────────────────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 0 40px;
+  text-align: center;
+}
+.hero-video {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+}
+.hero-video video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: blur(4px) brightness(0.22);
+  transform: scale(1.07);
+}
+.hero-video-fallback {
+  position: absolute; inset: 0;
+  background: #07080A;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(7,8,10,0.3) 0%, rgba(7,8,10,0.75) 100%);
+}
+
+/* ── SWORD ANIMATION ─────────────────────────────────────────────────────── */
+@keyframes swordFall {
+  0%   { transform: translateY(-110vh); opacity: 0; }
+  5%   { opacity: 1; }
+  75%  { transform: translateY(0) scaleY(1.015); }
+  85%  { transform: translateY(8px) scaleY(0.99); }
+  92%  { transform: translateY(-4px) scaleY(1.005); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+@keyframes impactGlow {
+  0%   { filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+  30%  { filter: drop-shadow(0 0 18px rgba(255,255,255,0.8)); }
+  100% { filter: drop-shadow(0 0 6px rgba(255,255,255,0.15)); }
+}
+@keyframes titleFadeIn {
+  from { opacity: 0; transform: scaleX(0.92); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+@keyframes impactShake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 32px;
+  opacity: 0; animation: titleFadeIn .6s ease .2s forwards;
+}
+.hero-eyebrow-line { width: 28px; height: 1px; background: rgba(255,255,255,0.35); }
+.hero-eyebrow-text {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+}
+
+/* Title row: BARBERÍA | SWORD | MERCURIO */
+.hero-title-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-word {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 120px);
+  letter-spacing: .02em; text-transform: uppercase;
+  opacity: 0; animation: titleFadeIn .5s ease .15s forwards;
+}
+.hero-word-right { animation-delay: .2s !important; }
+
+/* Sword wrapper */
+.sword-wrap {
+  width: clamp(44px, 5vw, 72px);
+  display: flex; justify-content: center; align-items: flex-start;
+  flex-shrink: 0;
+  /* overflow visible so sword can extend above/below */
+}
+.sword-svg {
+  width: 100%;
+  animation: swordFall 1.4s cubic-bezier(0.22,1,0.36,1) .5s both,
+             impactGlow 0.6s ease 1.85s both;
+}
+
+/* Logo below sword */
+.hero-logo {
+  display: block; width: 80px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0; animation: titleFadeIn .5s ease 2.1s forwards;
+  margin-top: -4px; margin-bottom: 20px;
+}
+
+/* Subtitle & actions */
+.hero-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(13px, 1.6vw, 17px);
+  font-weight: 600; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 40px;
+  opacity: 0; animation: titleFadeIn .5s ease 2.3s forwards;
+}
+.hero-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 60px;
+  opacity: 0; animation: titleFadeIn .5s ease 2.5s forwards;
+}
+.btn-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white); color: var(--bg);
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; padding: 15px 36px;
+  transition: background .2s, transform .2s;
+}
+.btn-white:hover { background: var(--accent2); transform: translateY(-1px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px;
+  transition: color .2s, border-color .2s;
+}
+.btn-outline:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
+.btn-outline svg { width: 15px; height: 15px; }
+.hero-stats {
+  display: flex; gap: 48px;
+  opacity: 0; animation: titleFadeIn .5s ease 2.6s forwards;
+}
+.hero-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px; color: var(--white); line-height: 1;
+}
+.hero-stat-label {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+}
+
+/* Impact class added by JS when sword lands */
+.hero-content.impact { animation: impactShake .28s ease; }
+
+/* ── MARQUEE ─────────────────────────────────────────────────────────────── */
+.marquee-strip {
+  background: var(--white);
+  padding: 13px 0; overflow: hidden;
+  display: flex;
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 0 32px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--bg);
+}
+.marquee-dot { width: 4px; height: 4px; background: rgba(7,8,10,0.3); border-radius: 50%; }
+
+/* ── ABOUT ──────────────────────────────────────────────────────────────── */
+#about {
+  padding: 120px 60px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 100px; align-items: center;
+}
+.section-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--muted);
+  display: block; margin-bottom: 18px;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1; letter-spacing: .02em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.about-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 4.5vw, 64px); line-height: 1; text-transform: uppercase; margin-bottom: 24px; }
+.about-desc { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 36px; }
+.about-detail {
+  display: flex; gap: 14px; align-items: flex-start;
+  margin-bottom: 18px;
+}
+.about-detail-icon { color: rgba(255,255,255,0.5); flex-shrink: 0; margin-top: 2px; }
+.about-detail-icon svg { width: 15px; height: 15px; }
+.about-detail p { font-size: 14px; color: var(--muted); }
+.about-detail strong { color: var(--white); }
+.about-visual {
+  position: relative; aspect-ratio: 3/4;
+  background: #000; overflow: hidden;
+}
+.about-visual-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.about-visual-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.about-visual-big {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 160px; font-weight: 400;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+  color: transparent; line-height: 1; letter-spacing: .02em;
+}
+.about-visual-tag {
+  font-size: 11px; letter-spacing: .35em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2);
+}
+.about-visual-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.04);
+  border-top: 1px solid var(--border);
+  padding: 18px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.about-visual-bar span { font-size: 11px; color: var(--muted); letter-spacing: .1em; }
+.about-visual-bar strong { color: var(--white); font-size: 12px; }
+
+/* ── TEAM ────────────────────────────────────────────────────────────────── */
+#team { padding: 120px 60px; background: var(--bg); }
+.team-header { margin-bottom: 64px; }
+.team-grid {
+  display: flex; justify-content: center;
+  gap: 64px; flex-wrap: wrap;
+}
+.team-card {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
+  transition: transform .3s;
+}
+.team-card:hover { transform: translateY(-6px); }
+.team-avatar {
+  position: relative;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  overflow: visible;
+}
+.team-avatar img {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid rgba(255,255,255,0.12);
+  transition: border-color .3s;
+}
+.team-card:hover .team-avatar img,
+.team-card[data-active="true"] .team-avatar img { border-color: rgba(255,255,255,0.6); }
+.team-initials {
+  display: none;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid rgba(255,255,255,0.12);
+  align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px; color: rgba(255,255,255,0.3);
+  transition: border-color .3s;
+}
+.team-card:hover .team-initials,
+.team-card[data-active="true"] .team-initials { border-color: rgba(255,255,255,0.6); }
+/* Highlight ring for active card */
+.team-ring {
+  display: none;
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  pointer-events: none;
+}
+.team-card[data-active="true"] .team-ring { display: block; }
+/* Square highlight inside circle (like in the screenshot) */
+.team-card[data-active="true"] .team-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 2;
+}
+.team-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--white);
+  text-align: center;
+}
+.team-role {
+  font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-top: -10px;
+}
+
+/* ── SERVICES ────────────────────────────────────────────────────────────── */
+#services { padding: 120px 60px; background: var(--surface); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.svc-item {
+  background: var(--bg);
+  padding: 48px 36px;
+  border-top: 1px solid transparent;
+  position: relative; overflow: hidden;
+  transition: border-color .3s, background .3s;
+}
+.svc-item:hover { border-color: rgba(255,255,255,0.4); background: #0d0e11; }
+.svc-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 70%);
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.svc-item:hover::before { opacity: 1; }
+.svc-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px; color: rgba(255,255,255,0.05);
+  line-height: 1; margin-bottom: -20px;
+  transition: color .3s;
+}
+.svc-item:hover .svc-number { color: rgba(255,255,255,0.08); }
+.svc-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .04em;
+  margin-bottom: 12px; position: relative; z-index: 1;
+}
+.svc-desc { font-size: 13px; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+.svc-arrow {
+  font-size: 11px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  opacity: 0; transition: opacity .3s;
+  display: flex; align-items: center; gap: 6px;
+}
+.svc-arrow svg { width: 13px; height: 13px; }
+.svc-item:hover .svc-arrow { opacity: 1; color: var(--white); }
+.svc-featured {
+  grid-column: span 2;
+  background: #0d0e11;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.svc-featured-content { padding: 48px 36px; }
+.svc-featured-visual {
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.svc-featured-visual::before {
+  content: 'CURSOS';
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 90px; letter-spacing: .08em;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+}
+.svc-badge {
+  display: inline-block;
+  background: var(--white); color: var(--bg);
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 12px; margin-bottom: 20px;
+}
+
+/* ── GALLERY ─────────────────────────────────────────────────────────────── */
+#gallery { padding: 120px 60px; }
+.gallery-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 48px;
+}
+.gallery-link {
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid var(--border); padding-bottom: 4px;
+  transition: color .2s, gap .2s, border-color .2s;
+}
+.gallery-link:hover { color: var(--white); gap: 14px; border-color: rgba(255,255,255,0.35); }
+.gallery-link svg { width: 13px; height: 13px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 260px 260px;
+  gap: 3px;
+}
+.gallery-item {
+  background: var(--surface);
+  position: relative; overflow: hidden;
+}
+.gallery-item:first-child { grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-row: span 2; }
+.gallery-inner {
+  position: absolute; inset: 0;
+  transition: transform .5s ease;
+}
+.gallery-item:hover .gallery-inner { transform: scale(1.04); }
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,8,10,0.75) 0%, transparent 50%);
+  opacity: 0; transition: opacity .3s;
+  display: flex; align-items: flex-end; padding: 20px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-label {
+  font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--white);
+}
+/* Placeholder gradients — reemplazá con <img> */
+.gi-1 { background: linear-gradient(135deg, #1a1c22 0%, #0e1018 50%, #12131a 100%); }
+.gi-2 { background: linear-gradient(135deg, #111318 0%, #1c1e26 100%); }
+.gi-3 { background: linear-gradient(135deg, #0f1115 0%, #191b22 100%); }
+.gi-4 { background: linear-gradient(160deg, #151720 0%, #0c0d12 50%, #1a1c24 100%); }
+.gi-5 { background: linear-gradient(135deg, #0d0f14 0%, #181a20 100%); }
+.gi-6 { background: linear-gradient(135deg, #121419 0%, #1e2028 100%); }
+.gi-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.gi-placeholder svg { opacity: .07; }
+
+/* ── HOURS & CONTACT ─────────────────────────────────────────────────────── */
+#contact {
+  padding: 120px 60px;
+  background: var(--surface);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.block-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  text-transform: uppercase; letter-spacing: .02em;
+  margin-bottom: 44px;
+}
+.hours-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0; border-bottom: 1px solid var(--border);
+}
+.hours-day { font-size: 13px; color: var(--muted); letter-spacing: .06em; }
+.hours-time {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; letter-spacing: .04em;
+  color: var(--white);
+}
+.contact-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-bottom: 28px;
+}
+.contact-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+}
+.contact-icon svg { width: 15px; height: 15px; }
+.contact-label {
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.contact-value { font-size: 15px; color: var(--white); }
+.btn-cta {
+  margin-top: 40px;
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--white); color: var(--bg);
+  padding: 18px 40px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  transition: background .2s;
+}
+.btn-cta:hover { background: var(--accent2); }
+.btn-cta svg { width: 18px; height: 18px; }
+
+/* ── SOCIAL ──────────────────────────────────────────────────────────────── */
+#social {
+  padding: 72px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.social-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted);
+}
+.social-links { display: flex; gap: 14px; }
+.social-link {
+  width: 46px; height: 46px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted);
+  transition: border-color .2s, color .2s;
+}
+.social-link:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+.social-link svg { width: 17px; height: 17px; }
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer {
+  padding: 28px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: .18em; color: var(--muted);
+}
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+/* ── WA FLOAT ────────────────────────────────────────────────────────────── */
+.wa-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 900;
+  width: 54px; height: 54px;
+  background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+  transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 26px; height: 26px; }
+
+/* ── REVEAL ──────────────────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .2s; }
+.reveal-d3 { transition-delay: .3s; }
+.reveal-d4 { transition-delay: .4s; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  nav, nav.scrolled { padding: 18px 32px; }
+  .nav-links { gap: 22px; }
+  #hero { padding: 100px 32px 60px; }
+  #about { grid-template-columns: 1fr; gap: 48px; padding: 80px 32px; }
+  .about-visual { aspect-ratio: 4/3; }
+  #services { padding: 80px 32px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .svc-featured { grid-column: span 2; grid-template-columns: 1fr; }
+  .svc-featured-visual { min-height: 100px; }
+  #gallery { padding: 80px 32px; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
+  .gallery-item:first-child, .gallery-item:nth-child(4) { grid-row: span 1; }
+  #contact { grid-template-columns: 1fr; padding: 80px 32px; gap: 60px; }
+  #social { padding: 56px 32px; flex-direction: column; gap: 28px; align-items: flex-start; }
+  footer { padding: 22px 32px; flex-direction: column; gap: 10px; text-align: center; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .svc-featured { grid-column: span 1; }
+  .gallery-grid { grid-template-columns: 1fr; height: auto; }
+  .gallery-item { height: 220px; }
+  .hero-stats { gap: 28px; }
+  h1.hero-title { font-size: clamp(72px, 20vw, 120px); }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <img src="Logo-barberiamercurio.png" alt="Barbería Mercurio" style="height:44px;width:auto;object-fit:contain;">
+  </div>
+  <div class="nav-links">
+    <a href="#about">Nosotros</a>
+    <a href="#services">Servicios</a>
+    <a href="#gallery">Galería</a>
+    <a href="#contact">Contacto</a>
+    <a href="https://wa.me/5233213017050" target="_blank" class="nav-cta">Agendar Cita</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video">
+    <div class="hero-video-fallback"></div>
+    <video autoplay muted loop playsinline>
+      <source src="video-fondo.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-ring1"></div>
+  <div class="hero-ring2"></div>
+  <div class="hero-pole"><div class="hero-pole-inner"></div></div>
+
+  <div class="hero-content" id="heroContent">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="hero-eyebrow-text">Zapopan Centro &nbsp;·&nbsp; Guadalajara</span>
+    </div>
+
+    <!-- BARBERÍA  [ESPADA]  MERCURIO -->
+    <div class="hero-title-row">
+      <span class="hero-word">BARBERÍA</span>
+
+      <div class="sword-wrap">
+        <svg class="sword-svg" id="swordSvg" viewBox="0 0 80 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pommel -->
+          <ellipse cx="40" cy="18" rx="16" ry="11" fill="white"/>
+          <ellipse cx="40" cy="18" rx="9" ry="6" fill="rgba(0,0,0,0.25)"/>
+          <!-- Handle -->
+          <rect x="37" y="28" width="6" height="72" fill="white" rx="2"/>
+          <line x1="37" y1="42" x2="43" y2="42" stroke="rgba(0,0,0,0.25)" stroke-width="1.2"/>
+          <line x1="37" y1="54" x2="43" y2="54" stroke="rgba(0,0,0,0.25)" stroke-width="1.2"/>
+          <line x1="37" y1="66" x2="43" y2="66" stroke="rgba(0,0,0,0.25)" stroke-width="1.2"/>
+          <line x1="37" y1="78" x2="43" y2="78" stroke="rgba(0,0,0,0.25)" stroke-width="1.2"/>
+          <line x1="37" y1="90" x2="43" y2="90" stroke="rgba(0,0,0,0.25)" stroke-width="1.2"/>
+          <!-- Crossguard -->
+          <path d="M6 104 C14 98, 28 96, 40 96 C52 96, 66 98, 74 104 C68 112, 54 116, 40 116 C26 116, 12 112, 6 104 Z" fill="white"/>
+          <ellipse cx="40" cy="106" rx="5" ry="4" fill="rgba(0,0,0,0.2)"/>
+          <!-- Blade (tapers to point) -->
+          <path d="M36 116 L44 116 L42.5 510 L40 540 L37.5 510 Z" fill="white"/>
+          <!-- Blade fuller/groove -->
+          <path d="M39.2 124 L40.8 124 L40.4 490 L40 505 L39.6 490 Z" fill="rgba(0,0,0,0.18)"/>
+          <!-- Blade edge highlights -->
+          <path d="M36 116 L38 124 L37.5 510 L40 540 L36 116 Z" fill="rgba(255,255,255,0.12)"/>
+        </svg>
+      </div>
+
+      <span class="hero-word hero-word-right">MERCURIO</span>
+    </div>
+
+    <!-- Logo debajo -->
+
+    <p class="hero-subtitle">Más que un corte, un nuevo look.</p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/5233213017050" target="_blank" class="btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Agendar por WhatsApp
+      </a>
+      <a href="#services" class="btn-outline">
+        Ver servicios
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">5+</div><div class="hero-stat-label">Años de experiencia</div></div>
+      <div><div class="hero-stat-num">7</div><div class="hero-stat-label">Días a la semana</div></div>
+      <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Satisfacción</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item">Corte Clásico <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Barba & Perfilado <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Tratamientos Faciales <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Ondulación Permanente <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Cursos Profesionales <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Barbería Mercurio <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Zapopan Centro <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Corte Clásico <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Barba & Perfilado <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Tratamientos Faciales <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Ondulación Permanente <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Cursos Profesionales <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Barbería Mercurio <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Zapopan Centro <span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div>
+    <span class="section-tag reveal">Nuestra historia</span>
+    <h2 class="about-title reveal reveal-d1">El arte del<br>barbero moderno</h2>
+    <p class="about-desc reveal reveal-d2">En Barbería Mercurio combinamos la tradición del oficio con las técnicas más actuales. Cada visita es una experiencia pensada hasta el último detalle — desde el ambiente hasta el acabado final.</p>
+    <div class="reveal reveal-d3">
+      <div class="about-detail">
+        <div class="about-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <p><strong>Zapopan Centro</strong> — Calle Juan Manuel #312, C.P. 45100</p>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div>
+        <p><strong>Lun–Sáb</strong> 11:00–21:00 &nbsp;·&nbsp; <strong>Dom</strong> 10:00–16:00</p>
+      </div>
+      <div class="about-detail">
+        <div class="about-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <p><strong>33-21-30-17-50</strong> &nbsp;·&nbsp; Barberiamercurio@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual reveal reveal-d1">
+    <!-- Video de fondo del rectángulo -->
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+      <source src="video-fondo.mp4" type="video/mp4">
+    </video>
+    <!-- Overlay oscuro encima del video -->
+    <div style="position:absolute;inset:0;background:rgba(7,8,10,0.45);z-index:1;"></div>
+    <div class="about-visual-center" style="z-index:2;"></div>
+    <div class="about-visual-bar" style="z-index:2;position:relative;">
+      <span>Est. Zapopan</span>
+      <strong>✦ Mercurio</strong>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-header reveal">
+    <span class="section-tag">El equipo</span>
+    <h2 class="section-title">Nuestros barberos</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal reveal-d1" data-active="false">
+      <div class="team-avatar">
+        <img src="Foto-fernanda.png" alt="Fernanda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="team-initials">F</div>
+        <div class="team-ring"></div>
+      </div>
+      <div class="team-name">Fernanda</div>
+      <div class="team-role">Barbera</div>
+    </div>
+    <div class="team-card reveal reveal-d2" data-active="false">
+      <div class="team-avatar">
+        <img src="Foto-Diego.png" alt="Diego" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="team-initials">D</div>
+        <div class="team-ring"></div>
+      </div>
+      <div class="team-name">Diego</div>
+      <div class="team-role">Barbero</div>
+    </div>
+    <div class="team-card reveal reveal-d3" data-active="false">
+      <div class="team-avatar">
+        <img src="Foto-Josue.png" alt="Josue" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="team-initials">J</div>
+        <div class="team-ring"></div>
+      </div>
+      <div class="team-name">Josue</div>
+      <div class="team-role">Barbero</div>
+    </div>
+    <div class="team-card reveal reveal-d4" data-active="false">
+      <div class="team-avatar">
+        <img src="foto-dylan.png" alt="Dylan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="team-initials">Dy</div>
+        <div class="team-ring"></div>
+      </div>
+      <div class="team-name">Dylan</div>
+      <div class="team-role">Barbero</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="margin-bottom:64px" class="reveal">
+    <span class="section-tag">Servicios</span>
+    <h2 class="section-title">Lo que hacemos mejor</h2>
+  </div>
+  <div class="services-grid">
+    <div class="svc-item reveal reveal-d1">
+      <div class="svc-number">01</div>
+      <div class="svc-name">Corte Clasico</div>
+      <p class="svc-desc">Cortes adaptados a tu estilo, estructura facial y preferencias. Acabado impecable con navaja, tijera y máquina.</p>
+      <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="svc-arrow">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-d2">
+      <div class="svc-number">02</div>
+      <div class="svc-name">Barba y Perfilado</div>
+      <p class="svc-desc">Diseño, perfilado y mantenimiento de barba. Toalla caliente, aceites de acabado e hidratación incluidos.</p>
+      <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="svc-arrow">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-d3">
+      <div class="svc-number">03</div>
+      <div class="svc-name">Tratamientos Faciales</div>
+      <p class="svc-desc">Rutinas de cuidado masculino: limpieza profunda, hidratación y tratamientos para cada tipo de piel.</p>
+      <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="svc-arrow">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item reveal reveal-d4">
+      <div class="svc-number">04</div>
+      <div class="svc-name">Ondulacion Permanente</div>
+      <p class="svc-desc">Técnica especializada para dar volumen, textura y movimiento natural al cabello. Resultado duradero.</p>
+      <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="svc-arrow">Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="svc-item svc-featured reveal reveal-d1">
+      <div class="svc-featured-content">
+        <div class="svc-badge">Formacion profesional</div>
+        <div class="svc-number">05</div>
+        <div class="svc-name">Cursos de Barberia</div>
+        <p class="svc-desc">Convertite en un profesional del arte de la barbería. Programas completos para todos los niveles, desde principiantes hasta técnicas avanzadas.</p>
+        <a href="cursos.html" class="btn-white" style="margin-top:16px;display:inline-flex;position:relative;z-index:10;">
+          Consultar programa →
+        </a>
+      </div>
+      <div class="svc-featured-visual"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <span class="section-tag">Galeria</span>
+      <h2 class="section-title" style="font-size:clamp(36px,4.5vw,60px)">Nuestro trabajo</h2>
+    </div>
+    <a href="https://www.instagram.com/barberia_mercurio/" target="_blank" class="gallery-link">
+      Ver en Instagram
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/a23e8a_69373edaa24d40ee9b78baa733b368a8~mv2.jpg" alt="Corte de cabello" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Corte Clasico</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-d1">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/a23e8a_2c5a3f2113be4ddb9d0aa52294d06aae~mv2.jpg" alt="Servicio de barba" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Barba & Perfilado</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-d2">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/a23e8a_bc5412201af341288bf3623c3e002f5f~mv2.jpg" alt="Tratamiento facial" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Tratamiento Facial</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-d3">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/a23e8a_09052350e0fd474d885078b58f35e5b6~mv2.jpg" alt="Ondulacion permanente" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Ondulacion Permanente</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-d1">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/11062b_d560e90a7f03491d8c5547d8a3956570~mv2.jpg" alt="Barberia Mercurio" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">El Local</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-d2">
+      <div class="gallery-inner">
+        <img src="https://static.wixstatic.com/media/a23e8a_69373edaa24d40ee9b78baa733b368a8~mv2.jpg" alt="Corte degradado" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.85);">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Corte + Barba</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div>
+    <h2 class="block-title reveal">Horarios</h2>
+    <div class="hours-row reveal reveal-d1"><span class="hours-day">Lunes</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d1"><span class="hours-day">Martes</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d2"><span class="hours-day">Miercoles</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d2"><span class="hours-day">Jueves</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d3"><span class="hours-day">Viernes</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d3"><span class="hours-day">Sabado</span><span class="hours-time">11:00 — 21:00</span></div>
+    <div class="hours-row reveal reveal-d4"><span class="hours-day">Domingo</span><span class="hours-time">10:00 — 16:00</span></div>
+  </div>
+  <div>
+    <h2 class="block-title reveal">Agenda tu cita</h2>
+    <div class="contact-item reveal reveal-d1">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <div><div class="contact-label">Telefono</div><div class="contact-value">33-21-30-17-50</div></div>
+    </div>
+    <div class="contact-item reveal reveal-d2">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><div class="contact-label">Email</div><div class="contact-value">Barberiamercurio@gmail.com</div></div>
+    </div>
+    <div class="contact-item reveal reveal-d3">
+      <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="contact-label">Direccion</div><div class="contact-value">Calle Juan Manuel #312<br>Zapopan Centro, C.P. 45100</div></div>
+    </div>
+    <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Barber%C3%ADa%20Mercurio" target="_blank" class="btn-cta reveal reveal-d4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social">
+  <p class="social-title reveal">Seguinos en Instagram</p>
+  <div class="social-links reveal reveal-d1">
+    <a href="https://www.instagram.com/barberia_mercurio/" target="_blank" class="social-link" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@barberia_mercurio" target="_blank" class="social-link" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+    </a>
+    <a href="mailto:Barberiamercurio@gmail.com" class="social-link" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Barberia Mercurio</div>
+  <div class="footer-copy">© 2025 Barbería Mercurio — Todos los derechos reservados</div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.301A9.94 9.94 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2"/></svg>
+</a>
+
+<script>
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top  = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.svc-item,.gallery-item').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+});
+
+// Sword impact shake
+const sword = document.getElementById('swordSvg');
+const heroContent = document.getElementById('heroContent');
+if (sword) {
+  sword.addEventListener('animationend', e => {
+    if (e.animationName === 'swordFall') {
+      heroContent.classList.add('impact');
+      heroContent.addEventListener('animationend', () => heroContent.classList.remove('impact'), { once: true });
+    }
+  });
+}
+
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

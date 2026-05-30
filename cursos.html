@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Barbería Profesional — Mercurio</title>
+<meta name="description" content="Curso de barbería profesional con Barbería Mercurio. 26 semanas, técnicas modernas, certificado incluido. $5,000 MXN. Zapopan, Jalisco.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #07080A;
+  --surface: #0D0E11;
+  --border:  rgba(255,255,255,0.09);
+  --white:   #FFFFFF;
+  --muted:   rgba(255,255,255,0.42);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+* { cursor: none !important; }
+#cursor { position: fixed; width: 18px; height: 18px; background: #fff; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%,-50%); transition: width .2s, height .2s; mix-blend-mode: difference; }
+#cursor.grow { width: 40px; height: 40px; opacity: .6; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(7,8,10,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo-icon { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.nav-logo-icon svg { width: 13px; height: 13px; }
+.nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: .14em; }
+.nav-back { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; transition: color .2s; }
+.nav-back:hover { color: var(--white); }
+.nav-back svg { width: 14px; height: 14px; }
+.nav-cta { border: 1px solid rgba(255,255,255,0.35); color: var(--white); padding: 10px 24px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; transition: background .2s; }
+.nav-cta:hover { background: var(--white); color: var(--bg); }
+
+/* HERO */
+.course-hero { padding: 160px 60px 100px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: center; }
+.course-tag { font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: block; }
+.course-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 88px); line-height: .95; text-transform: uppercase; margin-bottom: 24px; }
+.course-desc { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; max-width: 540px; }
+.course-meta { display: flex; gap: 40px; margin-bottom: 40px; }
+.meta-item { }
+.meta-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--white); line-height: 1; }
+.meta-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.course-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-white { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--bg); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 16px 36px; transition: background .2s; }
+.btn-white:hover { background: #ccc; }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 16px 28px; transition: border-color .2s, color .2s; }
+.btn-outline:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+/* Price card */
+.price-card { background: var(--surface); border: 1px solid var(--border); padding: 48px 40px; position: sticky; top: 100px; }
+.price-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 64px; line-height: 1; margin-bottom: 4px; }
+.price-currency { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+.price-btn { display: block; width: 100%; background: var(--white); color: var(--bg); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 18px; text-align: center; transition: background .2s; margin-bottom: 16px; }
+.price-btn:hover { background: #ccc; }
+.price-note { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.6; }
+.price-divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+.price-includes-title { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.price-include-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--muted); }
+.price-include-item svg { width: 14px; height: 14px; color: var(--white); flex-shrink: 0; margin-top: 2px; }
+
+/* SECTIONS */
+.section { padding: 100px 60px; border-bottom: 1px solid var(--border); }
+.section-label { font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; display: block; }
+.section-heading { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 56px); text-transform: uppercase; margin-bottom: 40px; }
+
+/* What you learn */
+.learn-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.learn-item { background: var(--surface); padding: 36px 28px; border-top: 1px solid transparent; transition: border-color .3s; }
+.learn-item:hover { border-color: rgba(255,255,255,0.3); }
+.learn-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: -8px; }
+.learn-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+.learn-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* For who */
+.for-list { display: flex; flex-direction: column; gap: 0; }
+.for-item { display: flex; align-items: center; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+.for-icon { width: 44px; height: 44px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: rgba(255,255,255,0.5); }
+.for-icon svg { width: 16px; height: 16px; }
+.for-text { font-size: 16px; color: var(--white); }
+
+/* Instructor */
+.instructor-wrap { display: grid; grid-template-columns: 200px 1fr; gap: 60px; align-items: center; }
+.instructor-avatar { width: 200px; height: 200px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.instructor-avatar-letter { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: rgba(255,255,255,0.15); }
+.instructor-name { font-family: 'Bebas Neue', sans-serif; font-size: 48px; text-transform: uppercase; margin-bottom: 8px; }
+.instructor-role { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+.instructor-bio { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 560px; }
+
+/* CTA final */
+.course-cta { padding: 100px 60px; text-align: center; }
+.cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 96px); text-transform: uppercase; margin-bottom: 20px; line-height: .95; }
+.cta-sub { font-size: 15px; color: var(--muted); margin-bottom: 44px; }
+.cta-price { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+
+/* Footer */
+footer { padding: 28px 60px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: .16em; color: var(--muted); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .1s; } .reveal-d2 { transition-delay: .2s; } .reveal-d3 { transition-delay: .3s; }
+
+@media (max-width: 1024px) {
+  .course-hero { grid-template-columns: 1fr; padding: 140px 32px 80px; }
+  .price-card { position: static; }
+  .learn-grid { grid-template-columns: 1fr 1fr; }
+  .instructor-wrap { grid-template-columns: 1fr; }
+  .section, .course-cta { padding: 80px 32px; }
+  nav { padding: 18px 32px; }
+  footer { padding: 22px 32px; flex-direction: column; gap: 10px; }
+}
+@media (max-width: 640px) {
+  .learn-grid { grid-template-columns: 1fr; }
+  .course-meta { gap: 24px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+    </div>
+    <span class="nav-logo-text">Mercurio</span>
+  </div>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Volver al sitio
+  </a>
+  <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20barber%C3%ADa" target="_blank" class="nav-cta">Inscribirme</a>
+</nav>
+
+<!-- HERO -->
+<div class="course-hero">
+  <div>
+    <span class="course-tag reveal">Formación profesional</span>
+    <h1 class="course-title reveal reveal-d1">Curso de<br>Barbería<br>Profesional</h1>
+    <p class="course-desc reveal reveal-d2">Aprendé las técnicas más actuales de la barbería desde cero. Cortes modernos, manejo de navaja, atención al cliente y todo lo que necesitás para arrancar tu carrera o tu propio negocio.</p>
+    <div class="course-meta reveal reveal-d2">
+      <div class="meta-item">
+        <div class="meta-num">26</div>
+        <div class="meta-label">Semanas</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">2</div>
+        <div class="meta-label">Etapas</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">100%</div>
+        <div class="meta-label">Online</div>
+      </div>
+    </div>
+    <div class="course-actions reveal reveal-d3">
+      <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20barber%C3%ADa" target="_blank" class="btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Quiero inscribirme
+      </a>
+      <a href="tel:3321301750" class="btn-outline">Llamar ahora</a>
+    </div>
+  </div>
+  <div class="price-card reveal reveal-d1">
+    <div class="price-label">Inversión total</div>
+    <div class="price-amount">$5,000</div>
+    <div class="price-currency">MXN · Pago único</div>
+    <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20barber%C3%ADa" target="_blank" class="price-btn">Inscribirme ahora →</a>
+    <p class="price-note">Escribinos por WhatsApp y coordinamos tu ingreso. Primera consulta sin cargo.</p>
+    <hr class="price-divider">
+    <div class="price-includes-title">Incluye</div>
+    <div class="price-include-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Acceso 24/7 a todos los materiales</div>
+    <div class="price-include-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Videos tutoriales y ejercicios prácticos</div>
+    <div class="price-include-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Certificado profesional al finalizar</div>
+    <div class="price-include-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Grupo de alumnos y comunidad</div>
+    <div class="price-include-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte directo con el instructor</div>
+  </div>
+</div>
+
+<!-- LO QUE APRENDÉS -->
+<section class="section">
+  <span class="section-label reveal">Contenido del curso</span>
+  <h2 class="section-heading reveal reveal-d1">Lo que vas a aprender</h2>
+  <div class="learn-grid">
+    <div class="learn-item reveal reveal-d1">
+      <div class="learn-num">01</div>
+      <div class="learn-title">Cortes Modernos y Clásicos</div>
+      <p class="learn-desc">Degradados, cortes texturizados, estilos clásicos y todas las tendencias actuales que piden los clientes.</p>
+    </div>
+    <div class="learn-item reveal reveal-d2">
+      <div class="learn-num">02</div>
+      <div class="learn-title">Afeitado y Barba</div>
+      <p class="learn-desc">Técnica de navaja recta, perfilado de barba, diseños y tratamientos post-afeitado.</p>
+    </div>
+    <div class="learn-item reveal reveal-d3">
+      <div class="learn-num">03</div>
+      <div class="learn-title">Manejo de Herramientas</div>
+      <p class="learn-desc">Tijeras, máquinas, navajas y productos. Cómo elegirlos, usarlos y mantenerlos en condiciones.</p>
+    </div>
+    <div class="learn-item reveal reveal-d1">
+      <div class="learn-num">04</div>
+      <div class="learn-title">Atención al Cliente</div>
+      <p class="learn-desc">Comunicación, fidelización, manejo de expectativas y cómo construir una cartera de clientes fieles.</p>
+    </div>
+    <div class="learn-item reveal reveal-d2">
+      <div class="learn-num">05</div>
+      <div class="learn-title">Emprendimiento</div>
+      <p class="learn-desc">Cómo armar tu propio negocio: costos, precios, local, marketing y todo lo que necesitás para arrancar.</p>
+    </div>
+    <div class="learn-item reveal reveal-d3">
+      <div class="learn-num">06</div>
+      <div class="learn-title">Certificación Profesional</div>
+      <p class="learn-desc">Al finalizar recibís tu certificado que acredita tu formación como barbero profesional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN ES -->
+<section class="section">
+  <span class="section-label reveal">Para quién es</span>
+  <h2 class="section-heading reveal reveal-d1">Este curso es para vos si...</h2>
+  <div class="for-list">
+    <div class="for-item reveal reveal-d1">
+      <div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <span class="for-text">Querés empezar una carrera en barbería desde cero</span>
+    </div>
+    <div class="for-item reveal reveal-d2">
+      <div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+      <span class="for-text">Ya cortás pero querés subir el nivel y dominar más técnicas</span>
+    </div>
+    <div class="for-item reveal reveal-d3">
+      <div class="for-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <span class="for-text">Soñás con abrir tu propia barbería y no sabés por dónde empezar</span>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="section">
+  <span class="section-label reveal">Quién te enseña</span>
+  <div class="instructor-wrap">
+    <div class="instructor-avatar reveal">
+      <span class="instructor-avatar-letter">M</span>
+    </div>
+    <div>
+      <h3 class="instructor-name reveal reveal-d1">Mercurio<br>Barbería</h3>
+      <div class="instructor-role reveal reveal-d1">Barbería profesional · Zapopan, Jalisco</div>
+      <p class="instructor-bio reveal reveal-d2">Barbería Mercurio es una de las barberías de referencia en Zapopan Centro. Con años de experiencia en el rubro, formamos a nuevos barberos con las técnicas más actuales del mercado y los valores del oficio tradicional. Nuestro objetivo es que salgas listo para trabajar o para montar tu propio espacio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="course-cta">
+  <h2 class="cta-title reveal">Empezá<br>tu carrera<br>hoy.</h2>
+  <p class="cta-sub reveal reveal-d1">26 semanas. Certificado incluido. Soporte real.</p>
+  <div class="cta-price reveal reveal-d1">$5,000 MXN</div>
+  <a href="https://wa.me/5233213017050?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20de%20barber%C3%ADa%20profesional" target="_blank" class="btn-white reveal reveal-d2" style="display:inline-flex;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+    Inscribirme por WhatsApp
+  </a>
+</div>
+
+<footer>
+  <div class="footer-logo">Barbería Mercurio</div>
+  <div class="footer-copy">© 2025 Barbería Mercurio — Todos los derechos reservados</div>
+</footer>
+
+<script>
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => { cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px'; });
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
